@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const cors = require('cors');
 const mongoose = require('mongoose');
 require('dotenv').config();
 const productRoute = require('./routes/product.route.js');
@@ -8,6 +9,8 @@ const productRoute = require('./routes/product.route.js');
 app.use(express.static('public'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+
+app.use(cors());
 
 app.listen(3000, () => {
   console.log(`Running on port 3000`);
